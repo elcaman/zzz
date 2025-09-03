@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pinterest-стиль макет</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        header {
+            background-color: #fff;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+            padding: 16px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #e60023;
+        }
+        
+        .search-bar {
+            flex-grow: 1;
+            max-width: 700px;
+            margin: 0 20px;
+        }
+        
+        .search-bar input {
+            width: 100%;
+            padding: 12px 16px;
+            border: none;
+            background-color: #efefef;
+            border-radius: 24px;
+            font-size: 16px;
+        }
+        
+        .nav-icons {
+            display: flex;
+            gap: 16px;
+        }
+        
+        .nav-icon {
+            width: 24px;
+            height: 24px;
+            background-color: #767676;
+            border-radius: 50%;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+        
+        .pin-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+        }
+        
+        .pin {
+            background: #fff;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 1px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .pin:hover {
+            transform: translateY(-5px);
+        }
+        
+        .pin-image {
+            width: 100%;
+            height: 0;
+            padding-bottom: 150%; /* Соотношение сторон 2:3 */
+            background-color: #e9e9e9;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .pin-image-placeholder {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #999;
+            font-size: 14px;
+        }
+        
+        .pin-info {
+            padding: 12px;
+        }
+        
+        .pin-title {
+            font-weight: bold;
+            margin-bottom: 8px;
+            font-size: 16px;
+        }
+        
+        .pin-description {
+            color: #555;
+            font-size: 14px;
+            margin-bottom: 12px;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        
+        .pin-button {
+            background-color: #e60023;
+            color: white;
+            border: none;
+            padding: 10px 16px;
+            border-radius: 24px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        
+        .pin-button:hover {
+            background-color: #ad081b;
+        }
+        
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .search-bar {
+                width: 100%;
+                margin: 10px 0;
+            }
+            
+            .pin-container {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo">Pinterest</div>
+            <div class="search-bar">
+                <input type="text" placeholder="Поиск">
+            </div>
+            <div class="nav-icons">
+                <div class="nav-icon"></div>
+                <div class="nav-icon"></div>
+                <div class="nav-icon"></div>
+            </div>
+        </div>
+    </header>
+    
+    <div class="container">
+        <div class="pin-container">
+            <div class="pin">
+                <div class="pin-image">
+                    <div class="pin-image-placeholder">Изображение</div>
+                </div>
+                <div class="pin-info">
+                    <div class="pin-title">Красивый пейзаж</div>
+                    <div class="pin-description">
+                        Вдохновляющий вид на горы и озеро в лучах закатного солнца. 
+                        Идеальное место для медитации и восстановления сил.
+                    </div>
+                    <button class="pin-button">Сохранить</button>
+                </div>
+            </div>
+            
+            <div class="pin">
+                <div class="pin-image">
+                    <div class="pin-image-placeholder">Изображение</div>
+                </div>
+                <div class="pin-info">
+                    <div class="pin-title">Дизайн интерьера</div>
+                    <div class="pin-description">
+                        Современная гостиная в скандинавском стиле с панорамными окнами 
+                        и камином. Светлые тона и натуральные материалы.
+                    </div>
+                    <button class="pin-button">Сохранить</button>
+                </div>
+            </div>
+            
+            <div class="pin">
+                <div class="pin-image">
+                    <div class="pin-image-placeholder">Изображение</div>
+                </div>
+                <div class="pin-info">
+                    <div class="pin-title">Кулинарный рецепт</div>
+                    <div class="pin-description">
+                        Десерт из свежих ягод и безе. Простой рецепт с пошаговыми 
+                        инструкциями для приготовления изысканного десерта.
+                    </div>
+                    <button class="pin-button">Сохранить</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
